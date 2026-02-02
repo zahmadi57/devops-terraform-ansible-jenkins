@@ -1,0 +1,25 @@
+---
+- name: Configure web server
+  hosts: all
+  become: yes
+  vars:
+    deployed_by: "Jenkins Pipeline"
+
+  tasks:
+    - name: Install nginx
+      ansible.builtin.dnf:
+        name: nginx
+        state: present
+
+    - name: Enable and start nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: yes
+
+    - name: Deploy index.html
+      ansible.builtin.template:
+        src: templates/index.html.j2
+        dest: /usr/share/nginx/html/index.html
+        mode: "0644"
+
