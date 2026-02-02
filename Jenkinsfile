@@ -38,7 +38,7 @@ pipeline {
               export AWS_DEFAULT_REGION=${AWS_REGION}
               terraform plan \
                 -var region=${AWS_REGION} \
-                -var ssh_key_name=YOUR_KEYPAIR_NAME \
+                -var ssh_key_name=devops-terraform \
                 -out=tfplan
             """
           }
