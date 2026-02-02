@@ -8,7 +8,7 @@ pipeline {
     // 1) "aws-access-key-id" (secret text) OR use one "aws-creds" as username/password
     // 2) "aws-secret-access-key" (secret text)
     // 3) "ec2-ssh-key" (SSH Username with private key) OR secret file
-    SSH_KEY_CRED_ID = "ec2-ssh-key"
+    SSH_KEY_CRED_ID = "ec2-user"
   }
 
   stages {
